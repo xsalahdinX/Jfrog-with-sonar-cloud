@@ -6,7 +6,7 @@ jobs:
   workspace:
     clean: all
   pool:
-    name: Self-Hosted-Agent
+    vmImage: 'ubuntu-latest'
   container: avcosystems/golang-node:1.16
   steps:
   #Settings
@@ -39,7 +39,7 @@ jobs:
 - job: OnBuildHost
   dependsOn: BuildAndTest
   pool:
-    name: Self-Hosted -Agent
+    vmImage: 'ubuntu-latest'
   steps:
   #Settings
   - task: Docker@2
