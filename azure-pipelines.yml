@@ -1,1 +1,63 @@
 
+trigger:
+- main
+jobs:
+- job: BuildAndTest
+  workspace:
+    clean: all
+  pool:
+    name: Self-Hosted-Agent
+  container: avcosystems/golang-node:1.16
+  steps:
+  #Settings
+  - task: Go@0
+    displayName: "Go Get"
+    inputs:
+      command: 'get'
+      arguments: '-d'
+      WorkingDirectory: '$(System.DefaultWorkingDirectory)'
+  #Setings
+  - task: Go@0
+    displayName: "Go build"
+    inputs:
+      command: 'build'
+      WorkingDirectory: '$(System.DefaultWorkingDirectory)'
+  - task: Go@0
+    displayName: "Go test"
+    inputs:
+      command: 'test'
+      arguments: './...'
+  - task: copyFile@2
+    displayName: "Copy files to ArtifactStaging"
+    inputs:
+      TargetFolder: '$(build.ArtifactStagingDirectory)'
+  #Settings
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact"
+    inputs:
+      artifactName: drop
+- job: OnBuildHost
+  dependsOn: BuildAndTest
+  pool:
+    name: Self-Hosted -Agent
+  steps:
+  #Settings
+  - task: Docker@2
+  #condition: and(succeeded (), eq(variables [ "Build.SourceBranch', 'refs/heads/master
+    displayName: "Docker Build"
+    inputs:
+      containerRegistry: '$(dockerRegistryServiceConnection)'
+      repository: '$(imageRepository)'
+      command: 'build'
+      Dockerfile: '$(dockerfilePath)'
+      tags: '$(Build.BuildNumber)'
+  #Settings
+  - task: ArtifactoryDocker@1
+  #Condition: and(succeeded (), eg(variables ['Build. SourceBranch' 1, 'refs/heads/master
+    inputs:
+      command: 'push'
+      artifactoryService: '$(artifactoryServiceConnection)'
+      targetRepo: '$(targetRepo)'
+      imageName: '$(imageName):$(imageTag)'
+
+   
