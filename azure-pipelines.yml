@@ -1,25 +1,16 @@
-trigger: 
- - master
+  trigger:
+        - main
 
-pool:
-   vmImage: 'ubuntu-latest'
+        pool:
+          vmImage: 'ubuntu-latest' # set to windows-latest or another Windows vmImage for Windows builds
 
-steps: 
-- task: GoTool@0
-  inputs:
-    version: '1.13.5'
-- task: Go@0
-  inputs:
-    command: 'get'
-    arguments: '-d'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-- task: Go@0
-  inputs:
-    command: 'build'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
-- task: CopyFiles@2
-  inputs:
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: PublishBuildArtifacts@1
-  inputs:
-     artifactName: drop
+        variables:
+          imageName: 'pipelines-javascript-docker'
+
+        steps:
+        - task: Docker@2
+          displayName: Build an image
+          inputs:
+            repository: $(imageName)
+            command: build
+            Dockerfile: app/Dockerfile
