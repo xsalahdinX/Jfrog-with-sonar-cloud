@@ -6,6 +6,11 @@ pool:
 
 variables:
   imageName: 'pipelines-javascript-docker'
+  artifactoryServiceConnection: 'jfrog.repo'
+  targetRepo: 'salahdin-jfrog-docker-local'
+  imageTag: '1'
+  
+  
 steps:
 - task: Docker@2
   displayName: Build an image
@@ -13,3 +18,11 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: Dockerfile
+    
+- task: ArtifactoryDocker@1
+  inputs:
+    command: 'push'
+    artifactoryService: '$(artifactoryServiceConnection)'
+    targetRepo: '$(targetRepo)'
+    imageName: '$(imageName):$(imageTag)'
+
