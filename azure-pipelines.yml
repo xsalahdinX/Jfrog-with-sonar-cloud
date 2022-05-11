@@ -9,10 +9,11 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: 'salahdin-jfrog-docker'
+    repository: 'salahdin.jfrog.io/salahdin-jfrog-docker'
     command: build
     Dockerfile: Dockerfile
     tags : 'latest'
+    
 - task: ArtifactoryDocker@1
   displayName: push an image
   inputs:
@@ -20,7 +21,7 @@ steps:
     artifactoryService: 'jfrog'
     targetRepo: 'salahdin-jfrog-docker'
     collectBuildInfo: true
-    imageName: 'salahdin-jfrog-docker:latest'
+    imageName: 'salahdin.jfrog.io/salahdin-jfrog-docker:latest'
 
     
     
