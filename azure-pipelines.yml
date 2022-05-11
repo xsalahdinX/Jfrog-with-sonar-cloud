@@ -8,7 +8,6 @@ variables:
   imageeName: 'pipelines-nigix-docker'
   artifactoryServiceConnection: 'jfrog.repo'
   targetRepo: 'salahdin-jfrog-docker-local'
-  imageTag: '$(Build.BuildName)'
   
   
 steps:
@@ -24,4 +23,6 @@ steps:
     command: 'push'
     artifactoryService: '$(artifactoryServiceConnection)'
     targetRepo: '$(targetRepo)'
-    imageName: '$(imageeName):$(imageTag)'
+ tags: |
+      test1
+      test2
