@@ -23,6 +23,6 @@ steps:
     command: 'push'
     artifactoryService: '$(artifactoryServiceConnection)'
     targetRepo: '$(targetRepo)'
- tags: |
+    tags: |
       test1
       test2
