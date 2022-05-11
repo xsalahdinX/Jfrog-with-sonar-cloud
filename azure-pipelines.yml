@@ -12,6 +12,7 @@ steps:
     repository: 'salahdin-jfrog-docker-local'
     command: build
     Dockerfile: Dockerfile
+    tags : 'latest'
     
 - task: ArtifactoryDocker@1
   inputs:
