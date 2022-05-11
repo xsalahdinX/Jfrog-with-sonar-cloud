@@ -9,7 +9,7 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: 'salahdin.jfrog.io/salahdin-jfrog-docker/sa'
+    repository: 'salahdin-jfrog-docker/sa'
     command: build
     Dockerfile: Dockerfile
     tags : 'latest'
