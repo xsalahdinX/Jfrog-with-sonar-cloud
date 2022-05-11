@@ -23,6 +23,5 @@ steps:
     command: 'push'
     artifactoryService: '$(artifactoryServiceConnection)'
     targetRepo: '$(targetRepo)'
-    tags: |
-      test1
-      test2
+    imageName: nigix:01
+
