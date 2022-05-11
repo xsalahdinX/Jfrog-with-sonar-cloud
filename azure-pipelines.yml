@@ -9,7 +9,7 @@ steps:
 - task: Docker@2
   displayName: Build an image
   inputs:
-    repository: 'salahdin.jfrog.io/hoda-docker/sa'
+    repository: 'salahdin.jfrog.io/salahdin-jfrog-docker/sa'
     command: build
     Dockerfile: Dockerfile
     tags : 'latest'
@@ -21,7 +21,7 @@ steps:
     artifactoryService: 'jfrog'
     targetRepo: 'hoda-docker'
     collectBuildInfo: true
-    imageName: 'salahdin.jfrog.io/hoda-docker/sa:latest'
+    imageName: 'salahdin.jfrog.io/salahdin-jfrog-docker/sa:latest'
 
     
     
