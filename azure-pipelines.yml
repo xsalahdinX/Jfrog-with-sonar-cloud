@@ -4,34 +4,20 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest' # set to windows-latest or another Windows vmImage for Windows builds
 
-variables:
-  imageName: 'pipelines-nigix-docker'
-  artifactoryServiceConnection: 'jfrog.repo'
-  targetRepo: 'salahdin-jfrog-docker-local'
-  
-  
+
 steps:
 - task: Docker@2
-  displayName: 'Build an image'
+  displayName: Build an image
   inputs:
-    containerregistry: '$(- task: ArtifactoryDocker@1
-  inputs:
-    command: 'push'
-    artifactoryService: 'jfrog.repo'
-    targetRepo: 'salahdin-jfrog-docker'
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    includeEnvVars: true)'
-    repository: '$(imageRepository)'
+    repository: salahdinnnnn
     command: build
     Dockerfile: Dockerfile
-    tags: '$(Build.BuildNumber)'
     
 - task: ArtifactoryDocker@1
   inputs:
     command: 'push'
-    artifactoryService: '$(artifactoryServiceConnection)'
-    targetRepo: '$(targetRepo)'
-    imageName: '$(imageName)':'$(imageTage)'
-
+    artifactoryService: 'jfrog.repo'
+    targetRepo: 'salahdin-jfrog-docker-local'
+    collectBuildInfo: true
+    buildNumber: '$(Build.BuildNumber)'
+    buildName: '$(Build.DefinitionName)'
