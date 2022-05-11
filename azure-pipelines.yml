@@ -15,14 +15,14 @@ steps:
     tags : 'latest'
     
 - task: ArtifactoryDocker@1
-  displayName: push an image
   inputs:
     command: 'push'
     artifactoryService: 'jfrog'
     targetRepo: 'salahdin-jfrog-docker'
-    collectBuildInfo: true
     imageName: 'salahdin.jfrog.io/salahdin-jfrog-docker/sa:latest'
-
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
     
     
     
