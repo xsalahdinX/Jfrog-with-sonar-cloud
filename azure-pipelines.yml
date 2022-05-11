@@ -19,10 +19,14 @@ steps:
     command: build
     Dockerfile: Dockerfile
     
-- task: ArtifactoryDocker@1
+- task: Docker@2
+  displayName: Push image
   inputs:
-    command: 'push'
-    artifactoryService: '$(artifactoryServiceConnection)'
-    targetRepo: '$(targetRepo)'
-    imageName: '$(imageeName):$(imageTag)'
+    containerRegistry: |
+      $(artifactoryServiceConnection)
+    repository: $(targetRepo)
+    command: push
+    tags: |
+      test1
+      test2
 
