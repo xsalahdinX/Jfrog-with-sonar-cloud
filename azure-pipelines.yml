@@ -23,5 +23,5 @@ steps:
     command: 'push'
     artifactoryService: '$(artifactoryServiceConnection)'
     targetRepo: '$(targetRepo)'
-    imageName: nigix:01
+    imageName: nigix:011
 
