@@ -19,7 +19,7 @@ steps:
   inputs:
     command: 'push'
     artifactoryService: 'jfrog'
-    targetRepo: 'hoda-docker'
+    targetRepo: 'salahdin-jfrog-docker'
     collectBuildInfo: true
     imageName: 'salahdin.jfrog.io/salahdin-jfrog-docker/sa:latest'
 
