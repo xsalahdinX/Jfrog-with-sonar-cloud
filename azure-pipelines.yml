@@ -12,16 +12,18 @@ variables:
   
 steps:
 - task: Docker@2
-  displayName: Build an image
+  displayName: 'Build an image'
   inputs:
-    repository: $(imageeName)
+    containerregistry: '$(dockerRegistryServiceConnection)'
+    repository: '$(imageRepository)'
     command: build
     Dockerfile: Dockerfile
+    tags: '$(Build.BuildNumber)'
     
 - task: ArtifactoryDocker@1
   inputs:
     command: 'push'
     artifactoryService: '$(artifactoryServiceConnection)'
     targetRepo: '$(targetRepo)'
-    imageName: nigix:011
+    imageName: '$(imageName)':'$(imageTage)'
 
