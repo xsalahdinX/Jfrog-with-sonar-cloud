@@ -19,5 +19,4 @@ steps:
     artifactoryService: 'jfrog.repo'
     targetRepo: 'salahdin-jfrog-docker-local'
     collectBuildInfo: true
-    buildNumber: '$(Build.BuildNumber)'
-    buildName: '$(Build.DefinitionName)'
+    imageName: 'salahdin'
