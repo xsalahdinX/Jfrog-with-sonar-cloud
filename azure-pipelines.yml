@@ -19,4 +19,4 @@ steps:
     artifactoryService: 'jfrog.repo'
     targetRepo: 'salahdin-jfrog-docker-local'
     collectBuildInfo: true
-    imageName: 'salahdin:1.0'
+    imageName: 'salahdin.jfrog.io/hoda:latest'
