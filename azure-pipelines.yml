@@ -12,6 +12,7 @@ steps:
     repository: salahdinnnnn
     command: build
     Dockerfile: Dockerfile
+    tag: 'salahdin.jfrog.io/hoda'
     
 - task: ArtifactoryDocker@1
   inputs:
