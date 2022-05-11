@@ -14,7 +14,15 @@ steps:
 - task: Docker@2
   displayName: 'Build an image'
   inputs:
-    containerregistry: '$(dockerRegistryServiceConnection)'
+    containerregistry: '$(- task: ArtifactoryDocker@1
+  inputs:
+    command: 'push'
+    artifactoryService: 'jfrog.repo'
+    targetRepo: 'salahdin-jfrog-docker'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true)'
     repository: '$(imageRepository)'
     command: build
     Dockerfile: Dockerfile
