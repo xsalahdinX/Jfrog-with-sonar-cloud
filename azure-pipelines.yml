@@ -17,9 +17,9 @@ steps:
   inputs:
     command: 'push'
     artifactoryService: 'jfrog'
-    targetRepo: 'salahdin-jfrog-docker-local'
+    targetRepo: 'salahdin-jfrog-docker'
     collectBuildInfo: true
-    imageName: 'salahdin.jfrog.io/salahdin-jfrog-docker-local:latest'
+    imageName: 'salahdin.jfrog.io/salahdin-jfrog-docker:latest'
 
     
     
