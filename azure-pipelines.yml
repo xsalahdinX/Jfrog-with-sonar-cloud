@@ -18,21 +18,21 @@ steps:
   
   
 - task: Docker@2
-    displayName: "Docker Build"
-    inputs:
-      containerRegistry: '$(dockerRegistryServiceConnection)'
-      repository: '$(imageRepository)'
-      command: 'build'
-      Dockerfile: '$(dockerfilePath)'
-      tags: '$(Build.BuildNumber)'
+  displayName: "Docker Build"
+  inputs:
+    containerRegistry: '$(dockerRegistryServiceConnection)'
+    repository: '$(imageRepository)'
+    command: 'build'
+    Dockerfile: '$(dockerfilePath)'
+    tags: '$(Build.BuildNumber)'
 
       
 - task: ArtifactoryDocker1
-    displayName: "Docker push"
-    inputs:
-      command: 'push'
-      artifactoryService: '$(artifactoryServiceConnection)'
-      targetRepo: '$(targetRepo)'
-      imageName: '$(imageName):$(imageTag)'
+  displayName: "Docker push"
+  inputs:
+    command: 'push'
+    artifactoryService: '$(artifactoryServiceConnection)'
+    targetRepo: '$(targetRepo)'
+    imageName: '$(imageName):$(imageTag)'
 
    
