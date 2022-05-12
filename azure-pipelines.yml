@@ -7,7 +7,7 @@ pool:
 variables:
   imageName: 'salahdin.jfrog.io/docker-local/my-image'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository : 'docker-local'
+  imageRepository : 'docker-local/my-image'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
   targetRepo : 'docker-local'
@@ -20,7 +20,8 @@ steps:
 - task: Docker@2
   displayName: "Docker Build"
   inputs:
-   
+    containerRegistry: '$(dockerRegistryServiceConnection)'
+    repository: '$(imageRepository)'
     command: 'build'
     Dockerfile: '$(dockerfilePath)'
     tags: '$(Build.BuildNumber)'
