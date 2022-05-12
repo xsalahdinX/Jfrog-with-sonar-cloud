@@ -7,7 +7,7 @@ pool:
 variables:
   imageName: 'salahdin.jfrog.io/docker-local'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository : 'dockser-local'
+  imageRepository : 'docker-local'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
   targetRepo : 'docker-local'
