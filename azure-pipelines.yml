@@ -3,7 +3,7 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-container : jfrogecosystem/jfrog-setup-cli
+container : jfrogecosystem/jfrog-setup-cli:latest
     
 variables:
   imageName: 'salahdin.jfrog.io/salahdindocker'  
