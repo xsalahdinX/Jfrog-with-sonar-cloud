@@ -7,7 +7,7 @@ pool:
 variables:
   imageName: 'salahdin.jfrog.io/hoda-docker'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository :
+  imageRepository : 'hoda-docker'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
   targetRepo : 'hoda-docker'
