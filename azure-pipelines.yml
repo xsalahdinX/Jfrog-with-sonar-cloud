@@ -5,13 +5,13 @@ pool:
   vmImage: 'ubuntu-latest'
     
 variables:
-  imageName: 'salahdin.jfrog.io/docker-local'  
+  imageName: 'salahdin.jfrog.io/docker-local/my-image'  
   dockerRegistryServiceConnection : 'Docker'
   imageRepository : 'docker-local'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
   targetRepo : 'docker-local'
-  imageTag : '$(Build.BuildName)'
+  imageTag : '$(Build.BuildNumber)'
     
     
 steps:
@@ -24,7 +24,7 @@ steps:
     repository: '$(imageRepository)'
     command: 'build'
     Dockerfile: '$(dockerfilePath)'
-    tags: '$(Build.BuildName)'
+    tags: '$(Build.BuildNumber)'
 
       
 - task: ArtifactoryDocker@1
