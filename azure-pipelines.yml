@@ -8,7 +8,7 @@ variables:
   imageName: 'salahdin.jfrog.io/docker-local'  
   dockerRegistryServiceConnection : 'Docker'
   imageRepository : 'docker-local'
-  dockerfilePath : /Dockerfile
+  dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
   targetRepo : 'docker-local'
   imageTag : '$(Build.BuildNumber)'
