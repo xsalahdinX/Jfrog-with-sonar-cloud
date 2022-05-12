@@ -5,12 +5,12 @@ pool:
   vmImage: 'ubuntu-latest'
     
 variables:
-  imageName: 'salahdin.jfrog.io/hoda-docker'  
+  imageName: 'salahdin.jfrog.io/salahdindocker'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository : 'hoda-docker'
+  imageRepository : 'salahdindocker'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
-  targetRepo : 'hoda-docker'
+  targetRepo : 'salahdindocker'
   imageTag : '$(Build.BuildNumber)'
     
     
