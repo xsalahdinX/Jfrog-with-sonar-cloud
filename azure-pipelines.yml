@@ -10,7 +10,7 @@ variables:
   imageRepository : 'docker-local'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
-  targetRepo : 'docker-local'
+  targetRepo : 'doc541654ker-local'
   imageTag : '$(Build.BuildNumber)'
     
     
