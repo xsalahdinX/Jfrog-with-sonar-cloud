@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
     
 variables:
-  imageName: 'salahdin.jfrog.io/docker-local'  
+  imageName: 'salahdin.jfrog.io/docker-local/my-test-image'  
   dockerRegistryServiceConnection : 'Docker'
   imageRepository : 'docker-local'
   dockerfilePath : Dockerfile
