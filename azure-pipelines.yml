@@ -3,15 +3,14 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-container : jfrogecosystem/jfrog-setup-cli:latest
     
 variables:
-  imageName: 'salahdin.jfrog.io/salahdindocker'  
+  imageName: 'salahdin.jfrog.io/docker-local'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository : 'salahdindocker'
+  imageRepository : 'docker-local'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
-  targetRepo : 'salahdindocker'
+  targetRepo : 'docker-local'
   imageTag : '$(Build.BuildNumber)'
     
     
