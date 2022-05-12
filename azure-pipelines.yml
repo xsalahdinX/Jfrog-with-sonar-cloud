@@ -30,9 +30,9 @@ steps:
 - task: ArtifactoryDocker1
     displayName: "Docker push"
     inputs:
-    command: 'push'
-    artifactoryService: '$(artifactoryServiceConnection)'
-    targetRepo: '$(targetRepo)'
-    imageName: '$(imageName):$(imageTag)'
+      command: 'push'
+      artifactoryService: '$(artifactoryServiceConnection)'
+      targetRepo: '$(targetRepo)'
+      imageName: '$(imageName):$(imageTag)'
 
    
