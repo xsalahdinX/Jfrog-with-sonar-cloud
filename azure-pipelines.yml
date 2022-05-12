@@ -5,12 +5,12 @@ pool:
   vmImage: 'ubuntu-latest'
     
 variables:
-  imageName: 'salahdin.jfrog.io/docker-local'  
+  imageName: 'salahdin.jfrog.io/docker-local/dbp'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository : 'docker-local'
+  imageRepository : 'docker-local/dbp'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
-  targetRepo : 'docker-local'
+  targetRepo : 'docker-local/dbp'
   imageTag : '$(Build.BuildNumber)'
     
     
