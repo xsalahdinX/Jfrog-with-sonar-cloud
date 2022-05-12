@@ -27,7 +27,7 @@ steps:
     tags: '$(Build.BuildNumber)'
 
       
-- task: ArtifactoryDocker1
+- task: ArtifactoryDocker@1
   displayName: "Docker push"
   inputs:
     command: 'push'
