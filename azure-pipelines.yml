@@ -1,9 +1,8 @@
 trigger:
 - main
 
-
-pool: Default
- 
+pool:
+  vmImage: 'ubuntu-latest'
     
 variables:
   imageName: 'salahdin.jfrog.io/docker-local/my-iimage'  
@@ -18,14 +17,38 @@ variables:
 steps:
   
   
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'salahdinhafez0883'
+    scannerMode: 'MSBuild'
+    projectKey: 'salahdinhafez0883_Jfrog-with-sonar-cloud'
+    projectName: 'Jfrog with sonar cloud'
 
 
 
 - task: Docker@2
   displayName: "Docker Build"
   inputs:
+    containerRegistry: '$(dockerRegistryServiceConnection)'
+    repository: '$(imageRepository)'
     command: 'build'
     Dockerfile: '$(dockerfilePath)'
     tags: '$(Build.BuildNumber)'
 
 
+- task: SonarCloudAnalyze@1
+
+      
+      
+- task: ArtifactoryDocker@1
+  displayName: "Docker push"
+  inputs:
+    command: 'push'
+    artifactoryService: '$(artifactoryServiceConnection)'
+    targetRepo: '$(targetRepo)'
+    imageName: '$(imageName):$(imageTag)'
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
