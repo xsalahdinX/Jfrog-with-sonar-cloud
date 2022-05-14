@@ -3,7 +3,9 @@ trigger:
 
 pool:
   name: Default
-    
+
+container: avcosystems/golang-node:1.16
+  
 variables:
   imageName: 'salahdin.jfrog.io/docker-local/my-image'  
   dockerRegistryServiceConnection : 'Docker'
