@@ -1,8 +1,9 @@
 trigger:
 - main
 
-pool: Default
- 
+pool:
+  name: Default
+  demands: SpecialSoftware # exists check for SpecialSoftware
     
 variables:
   imageName: 'salahdin.jfrog.io/docker-local/my-image'  
