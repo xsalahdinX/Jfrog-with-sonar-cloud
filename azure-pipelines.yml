@@ -1,8 +1,9 @@
 trigger:
 - main
 
-pool:
-  name: SALAHDIN
+
+pool: Default
+ 
     
 variables:
   imageName: 'salahdin.jfrog.io/docker-local/my-iimage'  
