@@ -1,13 +1,13 @@
 trigger:
 - main
 
-pool:
-  name: Self-Hosted
-
+pool: Self-Hosted
+ 
+    
 variables:
-  imageName: 'salahdin.jfrog.io/docker-local/my-image'  
+  imageName: 'salahdin.jfrog.io/docker-local/my-iimage'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository : 'docker-local/my-image'
+  imageRepository : 'docker-local/my-iimage'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
   targetRepo : 'docker-local'
@@ -15,6 +15,17 @@ variables:
     
     
 steps:
+  
+  
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'salahdinhafez0883'
+    scannerMode: 'MSBuild'
+    projectKey: 'salahdinhafez0883_Jfrog-with-sonar-cloud'
+    projectName: 'Jfrog with sonar cloud'
+
+
 
 - task: Docker@2
   displayName: "Docker Build"
@@ -26,6 +37,7 @@ steps:
     tags: '$(Build.BuildNumber)'
 
 
+- task: SonarCloudAnalyze@1
 
       
       
@@ -37,3 +49,6 @@ steps:
     targetRepo: '$(targetRepo)'
     imageName: '$(imageName):$(imageTag)'
 
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
