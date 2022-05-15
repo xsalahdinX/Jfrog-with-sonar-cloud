@@ -15,11 +15,7 @@ variables:
     
     
 steps:
-  
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-  
+
   
   
 - task: SonarCloudPrepare@1
@@ -30,6 +26,7 @@ steps:
     projectKey: 'salahdinhafez0883_Jfrog-with-sonar-cloud'
     projectName: 'Jfrog with sonar cloud'
 
+- task: SonarCloudAnalyze@1
 
 
 - task: Docker@2
@@ -42,7 +39,6 @@ steps:
     tags: '$(Build.BuildNumber)'
 
 
-- task: SonarCloudAnalyze@1
 
       
       
