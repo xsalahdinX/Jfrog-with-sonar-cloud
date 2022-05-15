@@ -5,9 +5,9 @@ pool: Self-Hosted
  
     
 variables:
-  imageName: 'salahdin.jfrog.io/docker-local/my-iimage'  
+  imageName: 'salahdin.jfrog.io/docker-local/my-iiimage'  
   dockerRegistryServiceConnection : 'Docker'
-  imageRepository : 'docker-local/my-iimage'
+  imageRepository : 'docker-local/my-iiimage'
   dockerfilePath : Dockerfile
   artifactoryServiceConnection : 'jfrog'
   targetRepo : 'docker-local'
